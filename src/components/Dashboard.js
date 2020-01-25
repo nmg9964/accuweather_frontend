@@ -6,7 +6,7 @@ class Dashboard extends React.Component {
   state = {
     cities: [],
     selectedCity: {},
-    forecasts: []
+    forecast: []
   }
 
   componentDidMount() {
@@ -23,7 +23,7 @@ class Dashboard extends React.Component {
     event.preventDefault()
     fetch(`http://localhost:3001/forecasts/${this.state.selectedCity.key}`)
     .then(resp => resp.json())
-    .then(weatherData => this.setState({ forecasts: weatherData }))
+    .then(weatherData => this.setState({ forecast: weatherData }))
   }
 
   render() {
@@ -48,8 +48,8 @@ class Dashboard extends React.Component {
           <Form.Button size='medium'>View Forecast</Form.Button>
         </Form>
 
-        {this.state.forecasts.length > 0 ?
-        <Forecast />
+        {this.state.forecast.length > 0 ?
+        <Forecast forecast={this.state.forecast}/>
         : null}
       </div>
     )
