@@ -1,10 +1,12 @@
 import React from 'react'
+import Forecast from './Forecast'
 import { Header, Form } from 'semantic-ui-react'
 
 class Dashboard extends React.Component {
   state = {
     cities: [],
-    selectedCity: {}
+    selectedCity: {},
+    forecasts: []
   }
 
   componentDidMount() {
@@ -14,11 +16,14 @@ class Dashboard extends React.Component {
   }
 
   handleOnChange = (event, { value }) => {
-    this.setState({ selectedCity: event.target.value })
+    this.setState({ selectedCity: value })
   }
 
   handleOnSubmit = event => {
     event.preventDefault()
+    fetch(`http://localhost:3001/forecasts/${this.state.selectedCity.key}`)
+    .then(resp => resp.json())
+    .then(weatherData => this.setState({ forecasts: weatherData }))
   }
 
   render() {
@@ -42,6 +47,10 @@ class Dashboard extends React.Component {
           />
           <Form.Button size='medium'>View Forecast</Form.Button>
         </Form>
+
+        {this.state.forecasts.length > 0 ?
+        <Forecast />
+        : null}
       </div>
     )
   }
