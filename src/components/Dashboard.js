@@ -13,6 +13,14 @@ class Dashboard extends React.Component {
     .then(locations => this.setState({ cities: locations }))
   }
 
+  handleOnChange = (event, { value }) => {
+    this.setState({ selectedCity: event.target.value })
+  }
+
+  handleOnSubmit = event => {
+    event.preventDefault()
+  }
+
   render() {
     const options = () => {
       let citiesArray = []
@@ -41,58 +49,3 @@ class Dashboard extends React.Component {
 }
 
 export default Dashboard
-
-// class Selection extends React.Component {
-//   state = { 
-//     topLocations: [],
-//     selectedLocation: {},
-//     forecasts: []
-//   }
-
-//   handleOnChange = (event, { value }) => {
-//     this.setState({ selectedLocation: value })
-//   }
-
-//   handleOnSubmit = () => {
-//     this.setState({ isLoading: true })
-//     fetch(`http://localhost:3001/forecasts/${this.state.selectedLocation.key}`)
-//     .then(resp => resp.json())
-//     .then(data => {
-//       console.log(data)
-//       this.setState({ forecasts: data, isLoading: false })
-//     })
-//   }
-
-//   render() {
-//     const options = () => {
-//       let locations = []
-//       this.state.topLocations.map(location =>
-//       locations.push({ key: location.key, text: location.name, value: location }))
-//       console.log(locations)
-//       return locations
-//     }
-
-//     return(
-//       <div>
-//        <Dropdown
-//         placeholder='Select Location'
-//         fluid
-//         selection
-//         value={this.state.selectedLocation}
-//         options={options()}
-//         onChange={this.handleOnChange}/>
-
-//         <Button onClick={this.handleOnSubmit}>Submit</Button>
-
-//         {this.state.isLoading ?
-//         <Dimmer active>
-//           <Loader />
-//         </Dimmer> :
-//         <Forecast
-//         forecasts={this.state.forecasts}/>}
-//       </div>
-//     )
-//   }
-// }
-
-// export default Selection
