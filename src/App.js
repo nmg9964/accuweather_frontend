@@ -1,12 +1,10 @@
 import React from 'react'
+import Dashboard from './components/Dashboard'
 import './App.css'
 import 'semantic-ui-css/semantic.min.css'
 
 function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+  return <Dashboard />
 }
 
 export default App;
