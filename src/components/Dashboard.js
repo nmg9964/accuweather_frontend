@@ -1,6 +1,6 @@
 import React from 'react'
 import Forecast from './Forecast'
-import { Header, Form, Dimmer, Loader } from 'semantic-ui-react'
+import { Header, Form, Dimmer, Loader, Divider } from 'semantic-ui-react'
 
 class Dashboard extends React.Component {
   state = {
@@ -48,6 +48,8 @@ class Dashboard extends React.Component {
           />
           <Form.Button size='medium'>View Forecast</Form.Button>
         </Form>
+
+        <Divider hidden />
 
         {this.state.isLoading ?
         <Dimmer active>
