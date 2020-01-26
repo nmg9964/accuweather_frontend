@@ -2,7 +2,7 @@
 Users may select one of the top 50 major cities around the world to view its three-day weather forecast starting from the current day. It is powered by a Ruby on Rails API and SQLite on the back-end along with React JS on the front-end, which is integrated with the Semantic UI CSS framework.
 
 ## Setup
-After installing the latest version of Node and cloning this repository, please run the following commands:
+After installing the latest version of Node and cloning this repository, please run the following commands in your terminal:
 * ```npm install```
 * ```npm start```
 
