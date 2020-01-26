@@ -42,7 +42,7 @@ class Dashboard extends React.Component {
         <Form onSubmit={this.handleOnSubmit}>
           <Form.Select
           fluid label='Please select a city'
-          value={this.state.selectedCity}
+          placeholder='New York'
           options={options()}
           onChange={this.handleOnChange}
           />

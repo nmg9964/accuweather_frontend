@@ -7,7 +7,7 @@ class Forecast extends React.Component {
       <Grid centered columns={3}>
         {this.props.forecast.map(day => {
           return <Grid.Column>
-            <h1>{day.Date}</h1>
+            <h1>{new Date(day.Date).toDateString()}</h1>
             <p>High: {day.Temperature.Maximum.Value} F</p>
             <p>Low: {day.Temperature.Minimum.Value} F</p>
             <p>Daytime: {day.Day.IconPhrase}</p>
